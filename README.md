@@ -30,3 +30,20 @@ When you want stop stack, use ```make stop```
 ### More
 
 More commands are available with ```make ```
+
+## Running Static Analysis and Coding Standards Checks
+
+- **PHPStan**:
+   ```bash
+   vendor/bin/phpstan analyse src
+   ```
+
+- **PHPCS**:
+   ```bash
+   vendor/bin/phpcs src
+   ```
+
+- **Fix Code Standards with PHPCBF** (PHP Code Beautifier and Fixer):
+   ```bash
+   vendor/bin/phpcbf src
+   ```
