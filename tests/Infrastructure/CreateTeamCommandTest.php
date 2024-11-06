@@ -26,7 +26,7 @@ class CreateTeamCommandTest extends KernelTestCase
     /**
      * @test
      */
-    public function it_execute(): void
+    public function it_execute_and_create_team(): void
     {
         $kernel = self::bootKernel();
         $application = new Application($kernel);
