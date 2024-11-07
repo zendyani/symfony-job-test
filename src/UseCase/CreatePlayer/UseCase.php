@@ -18,7 +18,7 @@ class UseCase
      */
     public function execute(Request $request): Response
     {
-        $this->playerRepository->create($player = (new Player(Uuid::v4(), $request->getName())));
+        $this->playerRepository->save($player = (new Player($request->getName())));
         return new Response($player->getId());
     }
 }

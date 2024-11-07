@@ -14,6 +14,11 @@ class UseCase
     {
     }
 
+    /**
+     * @param \App\UseCase\CreateTeam\Request $request
+     * @throws \App\Domain\Exception\TeamNameValidationException
+     * @return \App\UseCase\CreateTeam\Response
+     */
     public function execute(Request $request): Response
     {
         if ($this->teamRepository->doesNameExist($request->getName())) {
@@ -23,7 +28,7 @@ class UseCase
         }
 
         $team = new Team($request->getName());
-        $this->teamRepository->create($team);
+        $this->teamRepository->save($team);
         return new Response($team->getId());
     }
 }

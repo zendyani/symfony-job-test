@@ -6,10 +6,16 @@ use App\Domain\Entity\Player;
 
 interface PlayerRepository
 {
-    public function create(Player $player): void;
+    /**
+     * @param \App\Domain\Entity\Player $player
+     * @return void
+     */
+    public function save(Player $player): void;
 
     /**
      * @return array<Player>
      */
     public function findAll(): array;
+
+    public function findOneByName(string $name): ?Player;
 }

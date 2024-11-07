@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\UseCase\GetTeams;
+namespace App\Tests\UseCase;
 
 use App\Domain\Entity\Team;
 use App\Domain\Repository\TeamRepository;

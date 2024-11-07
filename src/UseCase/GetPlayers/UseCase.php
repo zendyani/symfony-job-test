@@ -10,6 +10,10 @@ final class UseCase
     {
     }
 
+    /**
+     * @param \App\UseCase\GetPlayers\Request $request
+     * @return \App\UseCase\GetPlayers\Response
+     */
     public function execute(Request $request): Response
     {
         return new Response($this->playerRepository->findAll());

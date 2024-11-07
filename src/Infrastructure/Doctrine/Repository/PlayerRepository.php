@@ -19,7 +19,7 @@ class PlayerRepository extends ServiceEntityRepository implements \App\Domain\Re
         parent::__construct($registry, Player::class);
     }
 
-    public function create(Player $player): void
+    public function save(Player $player): void
     {
         $this->_em->persist($player);
         $this->_em->flush();
@@ -31,5 +31,10 @@ class PlayerRepository extends ServiceEntityRepository implements \App\Domain\Re
     public function findAll(): array
     {
         return $this->findBy(array());
+    }
+
+    public function findOneByName(string $name): Player|null
+    {
+        return $this->findOneBy(array('name' => $name));
     }
 }

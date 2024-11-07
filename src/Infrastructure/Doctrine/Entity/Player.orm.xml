@@ -8,5 +8,9 @@
         <id name="id" type="uuid" column="id">
         </id>
         <field name="name" column="name" type="string" length="255" nullable="false"/>
+        <!-- Optional ManyToOne association with Team -->
+        <many-to-one field="team" target-entity="App\Domain\Entity\Team" inversed-by="players">
+            <join-column name="team_id" referenced-column-name="id" nullable="true" on-delete="SET NULL"/>
+        </many-to-one>
     </entity>
 </doctrine-mapping>

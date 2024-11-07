@@ -10,6 +10,9 @@ final class UseCase
     {
     }
 
+    /**
+     * @return \App\UseCase\GetTeams\Response
+     */
     public function execute(): Response
     {
         return new Response($this->teamRepository->findAll());

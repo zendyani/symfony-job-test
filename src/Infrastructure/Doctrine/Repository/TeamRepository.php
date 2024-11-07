@@ -23,17 +23,13 @@ class TeamRepository extends ServiceEntityRepository implements \App\Domain\Repo
     {
         $team = $this->findOneBy(array('name' => $name));
         return !!$team;
-
-        // if ($team) {
-        //     return true;
-        // }
-        // return false;
     }
 
-    public function create(Team $team): void
+    public function save(Team $team): void
     {
         $this->_em->persist($team);
         $this->_em->flush();
+        $this->_em->refresh($team); // Ensure the team is fully refreshed after save
     }
 
     /**
@@ -42,5 +38,10 @@ class TeamRepository extends ServiceEntityRepository implements \App\Domain\Repo
     public function findAll(): array
     {
         return $this->findBy(array());
+    }
+
+    public function findOneByName(string $name): Team|null
+    {
+        return $this->findOneBy(array('name' => $name));
     }
 }

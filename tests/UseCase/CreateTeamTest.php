@@ -55,7 +55,7 @@ final class CreateTeamTest extends TestCase
         $request = new Request('mouloudia');
         
         $this->teamRepository->expects($this->once())
-            ->method("create")
+            ->method("save")
             ->with($this->isInstanceOf(Team::class));
 
         $useCase = (new UseCase($this->teamRepository))->execute($request);
